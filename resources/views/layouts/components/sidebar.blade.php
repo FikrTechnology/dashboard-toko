@@ -6,6 +6,11 @@
             'route' => '/',
         ],
         (object)[
+            'name' => 'Kategori Produk',
+            'icon' => 'fas fa-th',
+            'route' => 'categories',
+        ],
+        (object)[
             'name' => 'Produk',
             'icon' => 'fas fa-th',
             'route' => 'products',
