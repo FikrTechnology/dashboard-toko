@@ -11,7 +11,7 @@
             'route' => 'categories',
         ],
         (object)[
-            'name' => 'Produk',
+            'name' => 'Produk/Barang',
             'icon' => 'fas fa-th',
             'route' => 'products',
         ],
