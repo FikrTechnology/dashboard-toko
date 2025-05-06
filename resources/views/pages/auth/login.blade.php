@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="{{ asset('templates/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('templates/dist/css/adminlte.min.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -20,6 +21,7 @@
     <a href="/"><b>Dashboard Admin</b>v1</a>
   </div>
   <!-- /.login-logo -->
+
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Masuk untuk memulai aplikasi</p>
@@ -51,6 +53,15 @@
             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
           </div>
           <!-- /.col -->
+            @if (session('error-unauthorized'))
+                <script>
+                    Swal.fire({
+                        title: "Terjadi Kesalahan",
+                        text: " {{ session('error-unauthorized') }} ",
+                        icon: "error"
+                    });
+                </script>
+            @endif
       </form>
     </div>
     <!-- /.login-card-body -->

@@ -11,7 +11,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::paginate(10);
+        $categories = Category::orderBy('id', 'desc')->paginate(10);
         return view('pages.categories.index', compact('categories'));
     }
 
@@ -30,7 +30,7 @@ class CategoryController extends Controller
     {
         Category::where('id', $id)->delete();
 
-        return redirect('/categories');
+        return redirect('/categories')->with('success', 'Berhasil menghapus kategori');
     }
 
     public function store(Request $request)
@@ -47,7 +47,7 @@ class CategoryController extends Controller
         $category->slug = Str::slug($request->input('name'));
         $category->save();
 
-        return redirect('/categories');
+        return redirect('/categories')->with('success', 'Berhasil menambahkan kategori');
     }
 
     public function update(Request $request, $id)
@@ -64,6 +64,6 @@ class CategoryController extends Controller
         $category->slug = Str::slug($request->input('name'));
         $category->save();
 
-        return redirect('/categories');
+        return redirect('/categories')->with('success', 'Berhasil mengubah kategori');
     }
 }
